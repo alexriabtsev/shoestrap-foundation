@@ -3,7 +3,7 @@
 Plugin Name: Shoestrap Foundation
 Plugin URI: http://wpmu.io
 Description: Foundation support for the Shoestrap theme
-Version: 0.1
+Version: 0.2
 Author: Aristeides Stathopoulos
 Author URI: http://aristeides.com
 GitHub Plugin URI: https://github.com/shoestrap/shoestrap-foundation
