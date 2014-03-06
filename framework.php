@@ -12,6 +12,9 @@ GitHub Plugin URI: https://github.com/shoestrap/shoestrap-foundation
 define( 'SS_FRAMEWORK', 'foundation' );
 define( 'SS_FRAMEWORK_PATH', dirname( __FILE__ ) );
 
+if ( !defined( 'SSF_PLUGIN_URL' ) )
+	define( 'SSF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
 /**
  * Add the framework class.
  * We add this at using an action because it extends a class that has not been loaded yet.

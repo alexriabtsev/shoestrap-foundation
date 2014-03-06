@@ -53,6 +53,9 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 
 			// Miscelaneous
 			'clearfix' => '<div class="clearfix"></div>',
+
+			// Forms
+			'form-input' => 'form-control',
 		);
 		/**
 		 * Class constructor
@@ -105,8 +108,8 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 		 * Enqueue scripts and stylesheets
 		 */
 		function enqueue_scripts() {
-			wp_register_script( 'bootstrap-min', get_template_directory_uri() . '/framework/foundation/assets/js/foundation.min.js',              false, null, true  );
-			wp_enqueue_script( 'bootstrap-min' );
+			wp_register_script( 'foundation-min', SSF_PLUGIN_URL . '/assets/js/foundation.min.js', false, null, true  );
+			wp_enqueue_script( 'foundation-min' );
 		}
 
 		function comments_template() {
