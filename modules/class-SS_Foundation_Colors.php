@@ -143,5 +143,3 @@ if ( !class_exists( 'SS_Foundation_Colors' ) ) {
 		}
 	}
 }
-
-$color = new SS_Foundation_Colors();

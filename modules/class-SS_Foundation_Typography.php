@@ -106,7 +106,7 @@ if ( !class_exists( 'SS_Foundation_Typography' ) ) {
 				wp_enqueue_style( 'ss-googlefont-base' );
 			}
 
-			if ( $ss_settings['header-font']['google'] === 'true' ) {
+			if ( isset( $ss_settings['header-font']['google'] ) && $ss_settings['header-font']['google'] === 'true' ) {
 				$font = self::getGoogleScript( $ss_settings['header-font'] );
 				wp_register_style( 'ss-googlefont-h', $font['link'] );
 				wp_enqueue_style( 'ss-googlefont-h' );
@@ -114,5 +114,3 @@ if ( !class_exists( 'SS_Foundation_Typography' ) ) {
 		}
 	}
 }
-
-$typography = new SS_Foundation_Typography();

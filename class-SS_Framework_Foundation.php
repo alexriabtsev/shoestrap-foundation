@@ -64,24 +64,35 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			}
 
 			if ( class_exists( 'ReduxFrameworkPlugin' ) ) {
-				// Branding
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Colors.php' );
-				// Typography
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Typography.php' );
-				// Comments Walker
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Walker_Comment.php' );
-				// Social
 				// include_once( dirname( __FILE__ ) . '/modules/class-Shoestrap_Social.php' );
-				// layout
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Layout.php' );
-				// Header
+				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Background.php' );
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Header.php' );
-				// The menus module
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Menus.php' );
-				// Widgets
 				include_once( dirname( __FILE__ ) . '/modules/widgets.php' );
-				// Specific classes for navbar
 				include_once( dirname( __FILE__ ) . '/nav-foundation.php' );
+
+				// instantiate the classes
+				global $ss_layout;
+				$ss_layout      = new SS_Foundation_Layout();
+
+				global $ss_background;
+				$ss_background  = new SS_Foundation_Background();
+
+				global $ss_branding;
+				$ss_branding    = new SS_Foundation_Colors();
+
+				global $ss_headers;
+				$ss_headers     = new SS_Foundation_Header();
+
+				global $ss_menus;
+				$ss_menus       = new SS_Foundation_Menus();
+
+				global $ss_typography;
+				$ss_typography  = new SS_Foundation_Typography();
 
 				add_filter( 'foundation_scss',    array( $this, 'styles_filter' ) );
 				add_filter( 'comments_template',  array( $this, 'comments_template' ) );
@@ -135,7 +146,7 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return '<div data-alert class="' . $classes . '"' . $id . '>' . $content . $dismiss . '</div>';
 		}
 
-		function make_panel( $extra_classes = null, $id = null  ) {
+		function open_panel( $extra_classes = null, $id = null  ) {
 
 			$classes = array();
 
@@ -158,7 +169,7 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return '<div class="panel ' . $classes . '"' . $id . '>';
 		}
 
-		function make_panel_heading( $extra_classes = null ) {
+		function open_panel_heading( $extra_classes = null ) {
 
 			$classes = array();
 
@@ -176,7 +187,7 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return '<div class="panel-heading' . $classes . '">';
 		}
 
-		function make_panel_body( $extra_classes = null ) {
+		function open_panel_body( $extra_classes = null ) {
 			$classes = array();
 
 			if ( !is_null( $extra_classes ) ) {
@@ -193,7 +204,7 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return '<div class="panel-body' . $classes . '">';
 		}
 
-		function make_panel_footer( $extra_classes = null ) {
+		function open_panel_footer( $extra_classes = null ) {
 
 			$classes = array();
 

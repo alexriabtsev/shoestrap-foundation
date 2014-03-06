@@ -435,5 +435,3 @@ if ( !class_exists( 'ShoestrapAdvanced' ) ) {
 		}
 	}
 }
-
-$advanced = new ShoestrapAdvanced();

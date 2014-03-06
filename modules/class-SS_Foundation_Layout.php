@@ -382,6 +382,3 @@ if ( !class_exists( 'SS_Foundation_Layout' ) ) {
 		}
 	}
 }
-
-global $ss_layout;
-$ss_layout = new SS_Foundation_Layout();

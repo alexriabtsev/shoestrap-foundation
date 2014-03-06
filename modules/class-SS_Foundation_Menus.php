@@ -287,5 +287,3 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 		}
 	}
 }
-
-$menus = new SS_Foundation_Menus();

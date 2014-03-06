@@ -160,5 +160,3 @@ if ( !class_exists( 'SS_Foundation_Header' ) ) {
 		}
 	}
 }
-
-$headers = new SS_Foundation_Header();
