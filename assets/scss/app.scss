@@ -57,3 +57,24 @@ div.row-meta {
 table {
 	width: 100%;
 }
+
+nav.tab-bar {
+	a.brand {
+		img {
+			max-height: $tabbar-height - 16px;
+			width: auto;
+		}
+	}
+
+	a.left-off-canvas-toggle.menu-icon {
+		position: relative;
+		i {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: $tabbar-height / 2;
+			padding-top: $tabbar-height / 4;
+			padding-right: $tabbar-height / 4;
+		}
+	}
+}

@@ -19,6 +19,11 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 			add_filter( 'shoestrap_navbar_brand',     array( $this, 'navbar_brand'             )      );
 			add_filter( 'body_class',                 array( $this, 'navbar_body_class'        )      );
 			add_filter( 'shoestrap_compiler',         array( $this, 'variables_filter'         )      );
+
+			if ( $ss_settings['navigation-type'] == 'off-canvas' ) {
+				add_filter( 'shoestrap_top_bar_template', array( $this, 'off_canvas_template_start' ) );
+				add_action( 'shoestrap_after_footer', array( $this, 'off_canvas_template_end' ) );
+			}
 		}
 
 		/*
@@ -37,10 +42,11 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 				'desc'        => __( 'Choose the type of Navigation you want on your website.', 'shoestrap' ),
 				'id'          => 'navigation-type',
 				'default'     => 'normal',
-				'options'     => array(
-					'none'    => __( 'Off', 'shoestrap' ),
-					'normal'  => __( 'Normal', 'shoestrap' ),
+				'options'        => array(
+					'none'       => __( 'Off', 'shoestrap' ),
+					'normal'     => __( 'Normal', 'shoestrap' ),
 					'contain'    => __( 'Contain-To-Grid', 'shoestrap' ),
+					'off-canvas' => __( 'Off-Canvas', 'shoestrap' ),
 				),
 				'type'        => 'button_set'
 			);
@@ -89,9 +95,9 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 				'desc'        => __( 'Select the height of the NavBar in pixels. Should be equal or greater than the height of your logo if you\'ve added one.', 'shoestrap' ),
 				'id'          => 'navbar_height',
 				'default'     => 45,
-				'min'         => 38,
+				'min'         => 20,
 				'step'        => 1,
-				'max'         => 200,
+				'max'         => 100,
 				'compiler'    => true,
 				'type'        => 'slider'
 			);
@@ -112,6 +118,7 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 					'size'    => 30 //this is the text size from preview box
 				),
 				'type'        => 'typography',
+				'output'      => 'ul.off-canvas-list li a'
 			);
 
 			$fields[] = array( 
@@ -284,6 +291,14 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 				$classes[] = 'top-navbar';
 
 			return $classes;
+		}
+
+		function off_canvas_template_start() {
+			return 'templates/off-canvas-start';
+		}
+
+		function off_canvas_template_end() {
+			ss_get_template_part( 'templates/off-canvas-end' );
 		}
 	}
 }

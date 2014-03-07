@@ -172,6 +172,10 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return '<div class="panel ' . $classes . '"' . $id . '>';
 		}
 
+		function panel_classes() {
+			return 'panel';
+		}
+
 		function open_panel_heading( $extra_classes = null ) {
 
 			$classes = array();
@@ -296,6 +300,8 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			// top-bar background
 			if ( isset( $ss_settings['navigation-bg'] ) && ! empty( $ss_settings['navigation-bg'] ) ) {
 				$vars .= '$topbar-bg: ' . $ss_settings['navigation-bg'] . ';';
+				$vars .= '$tabbar-bg: ' . $ss_settings['navigation-bg'] . ';';
+				$vars .= '$off-canvas-bg: ' . $ss_settings['navigation-bg'] . ';';
 
 				if ( Shoestrap_Color::get_brightness( $ss_settings['navigation-bg'] ) > 150 ) {
 					$vars .= '$topbar-link-bg-hover: ' . Shoestrap_Color::adjust_brightness( $ss_settings['navigation-bg'], -15 ) . ';';
@@ -303,6 +309,13 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 					$vars .= '$topbar-link-bg-hover: ' . Shoestrap_Color::adjust_brightness( $ss_settings['navigation-bg'], 15 ) . ';';
 				}
 			}
+
+			// top-bar height
+			if ( isset( $ss_settings['navbar_height'] ) && ! empty( $ss_settings['navbar_height'] ) ) {
+				$vars .= '$topbar-height: ' . $ss_settings['navbar_height'] . 'px;';
+				$vars .= '$tabbar-height: ' . $ss_settings['navbar_height'] . 'px;';
+			}
+
 
 			return $vars;
 		}
@@ -336,7 +349,7 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			$scss = new scssc();
 			$scss->setImportPaths( $scss_location );
 
-			$css .=  $scss->compile( apply_filters( 'foundation_scss', '@import "app.scss";' ) );
+			$css =  $scss->compile( apply_filters( 'foundation_scss', '@import "app.scss";' ) );
 
 			// Ugly hack to properly set the path to webfonts
 			$css = str_replace( "url('Elusive-Icons", "url('" . $webfont_location . "Elusive-Icons", $css );

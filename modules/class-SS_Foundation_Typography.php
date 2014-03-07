@@ -106,6 +106,12 @@ if ( !class_exists( 'SS_Foundation_Typography' ) ) {
 				wp_enqueue_style( 'ss-googlefont-base' );
 			}
 
+			if ( $ss_settings['font_navbar']['google'] === 'true' ) {
+				$font = self::getGoogleScript( $ss_settings['font_navbar'] );
+				wp_register_style( 'ss-googlefont-nav', $font['link'] );
+				wp_enqueue_style( 'ss-googlefont-nav' );
+			}
+
 			if ( isset( $ss_settings['header-font']['google'] ) && $ss_settings['header-font']['google'] === 'true' ) {
 				$font = self::getGoogleScript( $ss_settings['header-font'] );
 				wp_register_style( 'ss-googlefont-h', $font['link'] );

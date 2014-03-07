@@ -1,9 +1,5 @@
 <?php
-/**
- * Use Bootstrap's media object for listing comments
- *
- * @link http://getbootstrap.com/components/#media
- */
+
 class SS_Foundation_Walker_Comment extends Walker_Comment {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$GLOBALS['comment_depth'] = $depth + 1; ?>
