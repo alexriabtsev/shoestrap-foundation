@@ -116,6 +116,19 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return dirname( __FILE__ ) . '/templates/comments.php';
 		}
 
+		public function make_dropdown_button( $color = 'primary', $size = 'medium', $type = null, $extra = null, $label = '', $content = '' ) {
+			global $ss_framework;
+
+			$id_nr = rand( 0, 9999 );
+
+			$return = '<div class="btn-group">';
+				$return .= '<a href="#" data-dropdown="drop' . $id_nr . '" class="' . $ss_framework->button_classes( $color, $size, $type, 'dropdown' ) . '">' . $label . '</a><br>';
+				$return .= '<ul id="drop' . $id_nr . '" data-dropdown-content class="f-dropdown">' . $content . '</ul>';
+			$return .= '</div>';
+
+			return $return;
+		}
+
 		/**
 		 * The framework's alert boxes.
 		 */
