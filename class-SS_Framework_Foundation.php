@@ -121,10 +121,8 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 
 			$id_nr = rand( 0, 9999 );
 
-			$return = '<div class="btn-group">';
-				$return .= '<a href="#" data-dropdown="drop' . $id_nr . '" class="' . $ss_framework->button_classes( $color, $size, $type, 'dropdown' ) . '">' . $label . '</a><br>';
-				$return .= '<ul id="drop' . $id_nr . '" data-dropdown-content class="f-dropdown">' . $content . '</ul>';
-			$return .= '</div>';
+			$return .= '<a href="#" data-dropdown="drop' . $id_nr . '" class="' . $ss_framework->button_classes( $color, $size, $type, 'dropdown ' . $extra ) . '">' . $label . '</a>';
+			$return .= '<ul id="drop' . $id_nr . '" data-dropdown-content class="f-dropdown">' . $content . '</ul>';
 
 			return $return;
 		}
