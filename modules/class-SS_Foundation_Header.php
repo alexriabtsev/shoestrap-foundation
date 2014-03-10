@@ -135,7 +135,7 @@ if ( !class_exists( 'SS_Foundation_Header' ) ) {
 		 * The Header template
 		 */
 		function branding() {
-			global $ss_settings;
+			global $ss_settings, $ss_framework;
 
 			if ( $ss_settings['header_toggle'] == 1 ) { ?>
 				<div class="header-wrapper">
@@ -143,7 +143,7 @@ if ( !class_exists( 'SS_Foundation_Header' ) ) {
 						<div class="medium-<?php echo $ss_settings['header-branding-width']; ?> columns">
 							<?php if ( $ss_settings['header_branding'] == 1 ) : ?>
 								<a class="brand-logo left" href="<?php echo home_url(); ?>/">
-									<h1 class="brand"><?php echo Shoestrap_Framework::logo(); ?></h1>
+									<h1 class="brand"><?php echo $ss_framework->logo(); ?></h1>
 								</a>
 							<?php endif; ?>
 						</div>
