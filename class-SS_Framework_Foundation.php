@@ -326,6 +326,11 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 				$vars .= '$tabbar-height: ' . $ss_settings['navbar_height'] . 'px;';
 			}
 
+			// topbar-breakpoint
+			if ( isset( $ss_settings['topbar_breakpoint'] ) && ! empty( $ss_settings['topbar_breakpoint'] ) ) {
+				$vars .= '$topbar-breakpoint: ' . $ss_settings['topbar_breakpoint'] . 'px;';
+				$vars .= '$topbar-media-query: "only screen and (min-width: ' . $ss_settings['topbar_breakpoint'] . 'px)";';
+			}
 
 			return $vars;
 		}

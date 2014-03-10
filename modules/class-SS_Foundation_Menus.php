@@ -189,6 +189,18 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 				'type'        => 'switch'
 			);
 
+			$fields[] = array(
+				'title'       => __( 'Navbar Breakpoint', 'shoestrap' ),
+				'desc'        => __( 'The point at which your navbar will collapse from standard to mobile view. You can set this according to your menus width', 'shoestrap' ),
+				'id'          => 'topbar_breakpoint',
+				'default'     => 640,
+				'min'         => 480,
+				'max'         => 2560,
+				'step'        => 1,
+				'type'        => 'slider',
+				'compiler'    => true,
+			);
+
 			$section['fields'] = $fields;
 
 			$section = apply_filters( 'shoestrap_module_menus_options_modifier', $section );
