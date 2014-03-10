@@ -24,9 +24,11 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 			add_filter( 'wp_nav_menu',        array( $this, 'submenu_classes' ) );
 			add_filter( 'nav_menu_css_class', array( $this, 'menu_active_class' ), 10, 2 );
 
-			if ( isset($ss_settings['navigation-type']) && $ss_settings['navigation-type'] == 'off-canvas' ) {
-				add_filter( 'shoestrap_top_bar_template', array( $this, 'off_canvas_template_start' ) );
-				add_action( 'shoestrap_after_footer', array( $this, 'off_canvas_template_end' ) );
+			if ( isset( $ss_settings['navigation-type'] ) ) {
+				if ( $ss_settings['navigation-type'] == 'off-canv-l' || $ss_settings['navigation-type'] == 'off-canv-r' ) {
+					add_filter( 'shoestrap_top_bar_template', array( $this, 'off_canvas_template_start' ) );
+					add_action( 'shoestrap_after_footer', array( $this, 'off_canvas_template_end' ) );
+				}
 			}
 		}
 
@@ -50,7 +52,8 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 					'none'       => __( 'Off', 'shoestrap' ),
 					'normal'     => __( 'Normal', 'shoestrap' ),
 					'contain'    => __( 'Contain-To-Grid', 'shoestrap' ),
-					'off-canvas' => __( 'Off-Canvas', 'shoestrap' ),
+					'off-canv-l' => __( 'Off-Canvas (left)', 'shoestrap' ),
+					'off-canv-r' => __( 'Off-Canvas (right)', 'shoestrap' ),
 				),
 				'type'        => 'button_set'
 			);
