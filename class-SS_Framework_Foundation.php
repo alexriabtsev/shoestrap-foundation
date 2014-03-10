@@ -390,8 +390,18 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 
 			$css = '';
 
-			if( $ss_settings != 1000 ) {
+			// the container max-width
+			if ( isset( $ss_settings['max-width'] ) && $ss_settings['max-width'] != 1000 ) {
 				$css .= ".row, .contain-to-grid .top-bar { max-width:" . $ss_settings['max-width'] . "px }";
+			}
+
+			// the label-tags link text color.
+			if ( isset( $ss_settings['primary-color'] ) ) {
+				if ( Shoestrap_Color::get_brightness( $ss_settings['primary-color'] ) > 150 ) {
+					$css .= '.label-tag a { color: #222; }';
+				} else {
+					$css .= '.label-tag a { color: #fff; }';
+				}
 			}
 
 			wp_add_inline_style( 'shoestrap_css', $css );
