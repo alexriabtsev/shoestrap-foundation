@@ -215,13 +215,23 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 			global $ss_settings;
 
 			$show_searchbox = $ss_settings['navbar_search'];
+
 			if ( $show_searchbox == '1' ) : ?>
-				<form role="search" method="get" id="searchform" class="form-search right navbar-form" action="<?php echo home_url('/'); ?>">
-					<label class="hide" for="s"><?php _e('Search for:', 'shoestrap'); ?></label>
-					<input type="text" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" id="s" class="search-query" placeholder="<?php _e('Search', 'shoestrap'); ?> <?php bloginfo('name'); ?>">
-				</form>
+				<ul class="left">
+					<li class="has-form">
+						<div class="row collapse">
+							<div class="large-8 small-9 columns">
+								<form role="search" method="get" id="searchform" class="form-search right navbar-form" action="<?php echo home_url('/'); ?>">
+									<input type="text" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" id="s" class="search-query" placeholder="<?php _e('Search', 'shoestrap'); ?> <?php bloginfo('name'); ?>">
+								</form>
+							</div>
+							<div class="large-4 small-3 columns"><a href="#" class="alert button expand"><?php _e( 'Search', 'shoestrap' ); ?></a></div>
+						</div>
+					</li>
+				</ul>
 				<?php
 			endif;
+
 		}
 
 		/**
