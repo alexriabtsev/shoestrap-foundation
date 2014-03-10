@@ -137,25 +137,26 @@ if ( !class_exists( 'SS_Foundation_Header' ) ) {
 		function branding() {
 			global $ss_settings, $ss_framework;
 
-			if ( $ss_settings['header_toggle'] == 1 ) { ?>
-				<div class="header-wrapper">
-					<div class="row">
-						<div class="medium-<?php echo $ss_settings['header-branding-width']; ?> columns">
-							<?php if ( $ss_settings['header_branding'] == 1 ) : ?>
-								<a class="brand-logo left" href="<?php echo home_url(); ?>/">
-									<h1 class="brand"><?php echo $ss_framework->logo(); ?></h1>
-								</a>
-							<?php endif; ?>
-						</div>
+			if ( $ss_settings['header_toggle'] == 1 ) {
 
-						<div class="medium-<?php echo 12 - $ss_settings['header-branding-width']; ?> columns">
-							<div<?php echo $pullclass; ?>>
-								<?php dynamic_sidebar( 'header-area' ); ?>
-							</div>
-						</div>
-					</div>
-				</div>
-				<?php
+				echo $ss_framework->open_container( 'div', null, 'header-wrapper' );
+					echo $ss_framework->open_row( 'div' );
+						echo $ss_framework->open_col( 'div', array( 'medium' => $ss_settings['header-branding-width'] ) );
+
+							if ( $ss_settings['header_branding'] == 1 ) {
+								echo '<a class="brand-logo left" href="' . home_url() . '/"><h1 class="brand">' . $ss_framework->logo() . '</h1></a>';
+							}
+
+						echo $ss_framework->close_col( 'div' );
+
+						echo $ss_framework->open_col( 'div', array( 'medium' => 12 - $ss_settings['header-branding-width'] ) );
+							echo '<div class="right">';
+								dynamic_sidebar( 'header-area' );
+							echo '</div>';
+
+						echo $ss_framework->close_col( 'div' );
+					echo $ss_framework->close_row( 'div' );
+				echo $ss_framework->close_container( 'div' );
 			}
 		}
 	}
