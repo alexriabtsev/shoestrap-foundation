@@ -170,7 +170,6 @@ if( ! class_exists( 'SS_Foundation_Footer' ) ) {
 
 			$bg         = $ss_settings['footer_background'];
 			$cl         = $ss_settings['footer_color'];
-			$cl_brand   = $ss_settings['color_brand_primary'];
 			$opacity    = ( intval( $ss_settings['footer_opacity'] ) ) / 100;
 			$rgb        = Shoestrap_Color::get_rgb( $bg, true );
 			$border     = $ss_settings['footer_border'];
@@ -193,9 +192,6 @@ if( ! class_exists( 'SS_Foundation_Footer' ) ) {
 
 			$style .= 'footer div.container { margin-top:'. $container_margin .'px; }';
 			$style .= '#copyright-bar { line-height: 30px; }';
-			$style .= '#footer_social_bar { line-height: 30px; font-size: 16px; text-align: right; }';
-			$style .= '#footer_social_bar a { margin-left: 9px; padding: 3px; color:' . $cl . '; }';
-			$style .= '#footer_social_bar a:hover, #footer_social_bar a:active { color:' . $cl_brand . ' !important; text-decoration:none; }';
 
 			wp_add_inline_style( 'shoestrap_css', $style );
 		}
