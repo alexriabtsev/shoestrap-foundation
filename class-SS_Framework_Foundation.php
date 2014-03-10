@@ -76,7 +76,6 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Header.php' );
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Menus.php' );
 				include_once( dirname( __FILE__ ) . '/modules/widgets.php' );
-				include_once( dirname( __FILE__ ) . '/nav-foundation.php' );
 
 				// instantiate the classes
 				global $ss_layout;
