@@ -270,7 +270,7 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 
 			if ( $ss_settings['nav_brand'] != 0 ) {
 				$branding  = '<a class="' . $branding_class . '" href="' . home_url('/') . '">';
-				$branding .= $ss_settings['navbar_logo'] == 1 ? $ss_framework::logo() : get_bloginfo( 'name' );
+				$branding .= $ss_settings['navbar_logo'] == 1 ? $ss_framework->logo() : get_bloginfo( 'name' );
 				$branding .= '</a>';
 			} else {
 				$branding = '';
