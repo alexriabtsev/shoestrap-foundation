@@ -75,6 +75,7 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Background.php' );
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Header.php' );
 				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Menus.php' );
+				include_once( dirname( __FILE__ ) . '/modules/class-SS_Foundation_Footer.php' );
 				include_once( dirname( __FILE__ ) . '/modules/widgets.php' );
 
 				// instantiate the classes
@@ -95,6 +96,9 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 
 				global $ss_typography;
 				$ss_typography  = new SS_Foundation_Typography();
+
+				global $ss_footer;
+				$ss_footer      = new SS_Foundation_Footer();
 
 				add_filter( 'foundation_scss',    array( $this, 'styles_filter' ) );
 				add_filter( 'comments_template',  array( $this, 'comments_template' ) );
