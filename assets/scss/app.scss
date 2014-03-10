@@ -50,7 +50,7 @@ div.row-meta {
 
 // A simple hack to contain the logo image inside top navbars.
 .top-bar img#site-logo {
-	max-height: 100%;
+	max-height: $topbar-height - 16px;
 	width: auto;
 }
 
