@@ -20,7 +20,7 @@ if ( !class_exists( 'SS_Foundation_Menus' ) ) {
 			add_filter( 'body_class',                 array( $this, 'navbar_body_class'        )      );
 			add_filter( 'shoestrap_compiler',         array( $this, 'variables_filter'         )      );
 
-			if ( $ss_settings['navigation-type'] == 'off-canvas' ) {
+			if ( isset($ss_settings['navigation-type']) && $ss_settings['navigation-type'] == 'off-canvas' ) {
 				add_filter( 'shoestrap_top_bar_template', array( $this, 'off_canvas_template_start' ) );
 				add_action( 'shoestrap_after_footer', array( $this, 'off_canvas_template_end' ) );
 			}

@@ -38,13 +38,13 @@ class SS_Foundation_Walker_Comment extends Walker_Comment {
 	}
 }
 
-function shoestrap_get_avatar( $avatar, $type ) {
+function shoestrap_foundation_get_avatar( $avatar, $type ) {
 	if ( ! is_object( $type ) ) { return $avatar; }
 
 	$avatar = str_replace( "class='avatar", "class='avatar left th", $avatar );
 	return $avatar;
 }
-add_filter( 'get_avatar', 'shoestrap_get_avatar', 10, 2 );
+add_filter( 'get_avatar', 'shoestrap_foundation_get_avatar', 10, 2 );
 
 /**
  * Display or retrieve edit comment link with formatting.
