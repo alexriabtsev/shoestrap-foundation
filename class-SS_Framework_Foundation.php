@@ -417,5 +417,12 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 			return $ss_layout->include_wrapper();
 		}
 
+		function float_class( $alignment = 'left' ) {
+			if ( $alignment == 'left' || $alignment == 'l' ) {
+				return 'left';
+			} elseif ( $alignment == 'right' || $alignment == 'r' ) {
+				return 'right';
+			}
+		}
 	}
 }
