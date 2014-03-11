@@ -8,6 +8,12 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 	class SS_Framework_Foundation extends SS_Framework_Core {
 
 		var $defines = array(
+			// Generic framework definitions
+			'shortname' => 'foundation',
+			'name'      => 'Foundation',
+			'classname' => 'SS_Framework_Foundation',
+			'compiler'  => 'sass_php',
+
 			// Layout
 			'container'  => null,
 			'row'        => 'row',
