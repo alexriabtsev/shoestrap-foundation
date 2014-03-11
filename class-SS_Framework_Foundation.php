@@ -424,5 +424,40 @@ if ( !class_exists( 'SS_Framework_Foundation' ) ) {
 				return 'right';
 			}
 		}
+
+		function make_tabs( $tab_titles = array(), $tab_contents = array() ) {
+
+			$content = '<dl class="tabs" data-tab>';
+
+			$i = 0;
+			foreach ( $tab_titles as $tab_title ) {
+
+				// Make the first tab active
+				$active = $i = 0 ? ' class="active"' : null;
+
+				$content .= '<dd' . $active . '><a href="#panel-' . $i . '">' . $tab_title . '</a></dd>';
+
+				$i++;
+			}
+
+			$content .= '</dl>';
+
+			$content .= '<div class="tabs-content">';
+
+			$i = 0;
+			foreach ( $tab_contents as $tab_content ) {
+
+				// Make the first tab active
+				$active = $i = 0 ? ' active' : null;
+
+				$content .= '<div class="content' . $active . '" id="panel' . $i . '">' . $tab_content . '</div>';
+
+				$i++;
+			}
+
+			$content .= '</div>';
+
+			return $content;
+		}
 	}
 }
